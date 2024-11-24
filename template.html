@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados do Banco de Dados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dados do Banco de Dados</h1>
+
+    <!-- Tabela FUNCIONARIO -->
+    <h2>Tabela: FUNCIONARIO</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>PARTY_ID</th>
+                <th>FIRST_NAME</th>
+                <th>LAST_NAME</th>
+                <th>BIRTHDAY</th>
+                <th>NOME_MAE</th>
+                <th>NOME_PAI</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in funcionarios %}
+            <tr>
+                {% for col in row %}
+                <td>{{ col }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Tabela ENDERECO -->
+    <h2>Tabela: ENDERECO</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>PARTY_ID</th>
+                <th>RUA</th>
+                <th>BAIRRO</th>
+                <th>NUMERO</th>
+                <th>CEP</th>
+                <th>CIDADE</th>
+                <th>ESTADO</th>
+                <th>PAIS</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in enderecos %}
+            <tr>
+                {% for col in row %}
+                <td>{{ col }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Tabela CARGO -->
+    <h2>Tabela: CARGO</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>PARTY_ID</th>
+                <th>CARGO</th>
+                <th>SALARIO</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in cargos %}
+            <tr>
+                {% for col in row %}
+                <td>{{ col }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
