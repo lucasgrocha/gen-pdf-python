@@ -4,3 +4,5 @@ bin/
 include/
 lib/
 pyvenv.cfg
+tmp/*
+!tmp/.keep

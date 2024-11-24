@@ -36,7 +36,7 @@ html_content = template.render(
 )
 
 # Save the rendered HTML to a file
-with open("dados.html", "w", encoding="utf-8") as file:
+with open("tmp/dados.html", "w", encoding="utf-8") as file:
     file.write(html_content)
 
 print("HTML file generated: dados.html")
@@ -52,6 +52,6 @@ pdf_options = {
 }
 
 # Generate PDF from the rendered HTML
-pdfkit.from_file("dados.html", "dados.pdf", options=pdf_options)
+pdfkit.from_file("tmp/dados.html", "tmp/dados.pdf", options=pdf_options)
 
 print("PDF file generated: dados.pdf")
