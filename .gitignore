@@ -6,3 +6,4 @@ lib/
 pyvenv.cfg
 tmp/*
 !tmp/.keep
+__pycache__

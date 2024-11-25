@@ -47,11 +47,14 @@
             </tr>
         </thead>
         <tbody>
-            {% for row in funcionarios %}
+            {% for funcionario in funcionarios %}
             <tr>
-                {% for col in row %}
-                <td>{{ col }}</td>
-                {% endfor %}
+                <td>{{ funcionario.party_id }}</td>
+                <td>{{ funcionario.first_name }}</td>
+                <td>{{ funcionario.last_name }}</td>
+                <td>{{ funcionario.birthday }}</td>
+                <td>{{ funcionario.nome_mae }}</td>
+                <td>{{ funcionario.nome_pai }}</td>
             </tr>
             {% endfor %}
         </tbody>
@@ -74,11 +77,17 @@
             </tr>
         </thead>
         <tbody>
-            {% for row in enderecos %}
+            {% for endereco in enderecos %}
             <tr>
-                {% for col in row %}
-                <td>{{ col }}</td>
-                {% endfor %}
+                <td>{{ endereco.id }}</td>
+                <td>{{ endereco.party_id }}</td>
+                <td>{{ endereco.rua }}</td>
+                <td>{{ endereco.bairro }}</td>
+                <td>{{ endereco.numero }}</td>
+                <td>{{ endereco.cep }}</td>
+                <td>{{ endereco.cidade }}</td>
+                <td>{{ endereco.estado }}</td>
+                <td>{{ endereco.pais }}</td>
             </tr>
             {% endfor %}
         </tbody>
@@ -96,11 +105,12 @@
             </tr>
         </thead>
         <tbody>
-            {% for row in cargos %}
+            {% for cargo in cargos %}
             <tr>
-                {% for col in row %}
-                <td>{{ col }}</td>
-                {% endfor %}
+                <td>{{ cargo.id }}</td>
+                <td>{{ cargo.party_id }}</td>
+                <td>{{ cargo.cargo }}</td>
+                <td>{{ cargo.salario }}</td>
             </tr>
             {% endfor %}
         </tbody>

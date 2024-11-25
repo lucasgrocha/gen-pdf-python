@@ -1,28 +1,11 @@
-import mysql.connector
 from jinja2 import Environment, FileSystemLoader
 import pdfkit  # Wrapper for wkhtmltopdf
+from models import Funcionario, Cargo, Endereco, session
 
-# Database connection
-conn = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="",  # Add your database password if required
-    database="EMPRESA"
-)
-cursor = conn.cursor()
-
-# Fetch data from the database
-cursor.execute("SELECT * FROM FUNCIONARIO;")
-funcionarios = cursor.fetchall()
-
-cursor.execute("SELECT * FROM ENDERECO;")
-enderecos = cursor.fetchall()
-
-cursor.execute("SELECT * FROM CARGO;")
-cargos = cursor.fetchall()
-
-cursor.close()
-conn.close()
+# Fetch data from the database using SQLAlchemy ORM
+funcionarios = session.query(Funcionario).all()
+enderecos = session.query(Endereco).all()
+cargos = session.query(Cargo).all()
 
 # Jinja2 template rendering
 env = Environment(loader=FileSystemLoader('.'))
@@ -55,3 +38,6 @@ pdf_options = {
 pdfkit.from_file("tmp/dados.html", "tmp/dados.pdf", options=pdf_options)
 
 print("PDF file generated: dados.pdf")
+
+# Close the session
+session.close()
