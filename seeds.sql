@@ -1,8 +1,10 @@
+DROP DATABASE IF EXISTS EMPRESA;
+
 -- Create the EMPRESA database
-CREATE DATABASE EMPRESA;
+CREATE DATABASE EMPRESA CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
 USE EMPRESA;
 
--- Create FUNCIONARIO table
 CREATE TABLE FUNCIONARIO (
     party_id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(100) NOT NULL,
@@ -10,18 +12,16 @@ CREATE TABLE FUNCIONARIO (
     birthday DATE NOT NULL,
     nome_mae VARCHAR(100),
     nome_pai VARCHAR(100)
-);
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
--- Create CARGO table
 CREATE TABLE CARGO (
     id INT AUTO_INCREMENT PRIMARY KEY,
     party_id INT NOT NULL,
     cargo VARCHAR(100) NOT NULL,
     salario DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (party_id) REFERENCES FUNCIONARIO(party_id)
-);
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
--- Create ENDERECO table
 CREATE TABLE ENDERECO (
     id INT AUTO_INCREMENT PRIMARY KEY,
     party_id INT NOT NULL,
@@ -33,7 +33,8 @@ CREATE TABLE ENDERECO (
     estado VARCHAR(50) NOT NULL,
     pais VARCHAR(50) NOT NULL,
     FOREIGN KEY (party_id) REFERENCES FUNCIONARIO(party_id)
-);
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
 
 
 INSERT INTO FUNCIONARIO (first_name, last_name, birthday, nome_mae, nome_pai) VALUES

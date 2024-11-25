@@ -47,7 +47,7 @@ class Endereco(Base):
         return f"<Endereco(id={self.id}, rua={self.rua}, cidade={self.cidade})>"
 
 # Database connection setup
-DATABASE_URL = "mysql+mysqlconnector://root:@localhost/EMPRESA"
+DATABASE_URL = "mysql+mysqlconnector://root:@localhost/EMPRESA?charset=utf8mb4"
 engine = create_engine(DATABASE_URL)
 
 # Create tables if they don't exist
