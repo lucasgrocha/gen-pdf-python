@@ -9,3 +9,15 @@ docker exec -i mysql mysql --default-character-set=utf8mb4 -u root < ./seeds.sql
 ```shell
 pip3 install -r requirements.txt
 ```
+
+Via server
+
+```shell
+uvicorn server:app --reload
+```
+
+Via console
+
+```shell
+python3 main.py
+```
